@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
     FaGithub,
@@ -17,6 +17,9 @@ import potrait from "../assets/potrait.jpg";
 import sphere from "../assets/sphereLanding.png";
 import turboXpress from "../assets/turboXpress.png";
 import clickviral from "../assets/clickviral.png";
+import sphereLearner from "../assets/sphere-learner.png"
+import sphereCreator from "../assets/sphere-creator.png"
+import sphereLogin from "../assets/sphereLogin.png"
 
 // Example data
 const experiencesData = [
@@ -38,9 +41,13 @@ const experiencesData = [
 
 const projectsData = [
     {
-        title: "E-Learning app",
+        title: "Sphere",
         description: "An interactive e-learning platform built with React and NestJs microservices, featuring a user-friendly interface and learning experience",
-        album: [],
+        album: [
+            sphereLearner,
+            sphereCreator,
+            sphereLogin
+        ],
         image: sphere,
         links: [
             // {
@@ -89,6 +96,17 @@ const projectsData = [
 
 export default function OpePortfolioNewLayout() {
     const [selectedProject, setSelectedProject] = useState(null);
+
+    useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [selectedProject]);
 
     return (
         <div className="min-h-screen bg-black text-white flex flex-col">
@@ -194,12 +212,18 @@ export default function OpePortfolioNewLayout() {
                     <h2 className="text-3xl md:text-4xl font-bold text-blue-400 mb-4">
                         About Me
                     </h2>
-                    <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+                    <p className="text-gray-300 text-lg leading-relaxed text-left max-w-3xl mx-auto mb-5">
                         Experienced backend Software Engineer with a strong background in computer science and a keen interest in 
-                        the development and design of scalable applications. Skilled in the design and implementation of software 
+                        the development and design of scalable applications. 
+                    </p>
+                    <p className="text-gray-300 text-lg leading-relaxed text-left max-w-3xl mx-auto mb-5">
+                        Skilled in the design and implementation of software 
                         solutions that drive business development and growth. Proficient in Python (Django Rest Framework, FastAPI), 
                         NodeJS (Express, NestJS), Docker, and Postman, amongst other technologies, with extensive experience in cloud 
-                        services and architecture. Expert in designing, implementing, and optimizing RESTful APIs, microservices 
+                        services and architecture.
+                    </p>    
+                    <p className="text-gray-300 text-lg leading-relaxed text-left max-w-3xl mx-auto mb-5">
+                        Expert in designing, implementing, and optimizing RESTful APIs, microservices 
                         architectures, and database systems, contributing to a 40% reduction in API response time and an estimated 20% 
                         decrease in system downtime.
                     </p>
@@ -312,13 +336,13 @@ export default function OpePortfolioNewLayout() {
 
             {/* Modal for Project Details */}
             {selectedProject && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-md overflow-auto">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-md overflow-y-auto">
                     <div className="max-w-3xl w-full">
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-black/90 p-4 rounded-lg"
+                            className="bg-black/90 p-4 rounded-lg max-h-[90vh] md:max-h-screen"
                             onClick={() => setSelectedProject(null)}
                         >
                         {/* Main content */}
