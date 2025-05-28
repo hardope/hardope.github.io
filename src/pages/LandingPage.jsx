@@ -356,7 +356,7 @@ export default function ModernPortfolio() {
                 className="space-y-6"
                 >
                 <p className="text-lg text-gray-300 leading-relaxed">
-                    Experienced backend Software Engineer with a strong background in computer science and a keen interest
+                    Experienced Full-Stack Software Engineer with a strong background in computer science and a keen interest
                     in the development and design of scalable applications.
                 </p>
                 <p className="text-lg text-gray-300 leading-relaxed">
