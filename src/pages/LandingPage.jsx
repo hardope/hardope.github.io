@@ -49,7 +49,7 @@ const experiencesData = [
         location: "Lagos, Nigeria",
         details:
           "Developed several high performance portals for In house Administration, Customer Support, and Merchant Management. Implemented a real-time transaction monitoring system, reducing fraud incidents by 30%.",
-        technologies: ["NodeJs", "NestJs", "PostgreSQL", "Redis", "Docker", "NextJs"],
+        technologies: ["NodeJs", "NestJs", "PostgreSQL", "Redis", "Docker", "NextJs", "Kafka"],
       },
     {
         role: "Backend Software Engineer",
@@ -58,7 +58,7 @@ const experiencesData = [
         location: "Remote",
         details:
         "Designed and implemented a QR code-based loyalty card system, enabling seamless digital redemption for users. Built scalable microservices architecture handling 10K+ daily transactions.",
-        technologies: ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker"],
+        technologies: ["NestJs", "NodeJs", "PostgreSQL", "Redis", "Docker", "AWS"],
     },
     {
         role: "Software Engineer",
@@ -67,7 +67,7 @@ const experiencesData = [
         location: "Nigeria",
         details:
         "Developed a web application to streamline digital requests for automobile repairs and maintenance, enhancing user experience and reducing processing time by 30%. Collaborated with cross-functional teams to gather requirements and deliver high-quality software solutions.",
-        technologies: ["Node.js", "Express", "React", "MongoDB", "AWS"],
+        technologies: ["Python", "FastAPI", "React", "MongoDB", "AWS"],
     },
 ]
 
@@ -234,7 +234,7 @@ export default function ModernPortfolio() {
                     transition={{ delay: 0.4 }}
                     className="text-xl lg:text-2xl text-gray-300 font-light"
                 >
-                    Backend Software Engineer
+                    Full-Stack Software Engineer
                 </motion.p>
 
                 <motion.p
@@ -243,7 +243,7 @@ export default function ModernPortfolio() {
                     transition={{ delay: 0.5 }}
                     className="text-lg text-gray-400 max-w-2xl leading-relaxed"
                 >
-                    I craft scalable backend solutions and APIs that power modern applications. Passionate about clean code,
+                    I craft scalable backend solutions and APIs that power modern applications and Design Intuitive user interfaces. Passionate about clean code,
                     system architecture, and delivering exceptional user experiences.
                 </motion.p>
                 </div>
