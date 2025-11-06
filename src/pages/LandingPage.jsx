@@ -29,10 +29,16 @@ import sphere_quiz from "../assets/sphere-quiz.png"
 import sphere_quiz_info from "../assets/sphere-quiz-info.png"
 import turboXpress from "../assets/turboXpress.png"
 import clickviral from "../assets/clickviral.png"
+import growthpro from "../assets/growthpro.png"
+import growthpro_landing from "../assets/growthpro-landing.png"
+import growthpro_learn from "../assets/growthpro-learn.png"
+import growthpro_cert from "../assets/growthpro-cert.png"
+import growthpro_course from "../assets/growthpro-course.png"
 // Skills data
 const skillsData = [
     { name: "Python", level: 95, icon: "🐍" },
     { name: "Node.js", level: 90, icon: "🟢" },
+    { name: "NestJs", level: 90, icon: "🏗️" },
     { name: "Reactjs", level: 85, icon: "⚛️" },
     { name: "NextJs", level: 80, icon: "📦" },
     { name: "Docker", level: 80, icon: "🐳" },
@@ -72,6 +78,27 @@ const experiencesData = [
 ]
 
 const projectsData = [
+    {
+        title: "Growthpro Africa",
+        description:
+        "An interactive e-learning platform built with React and NestJs microservices, featuring advanced analytics, real time notification with assesments and assignments",
+        image: growthpro,
+        album: [
+        growthpro_landing,
+        growthpro_learn,
+        growthpro_cert,
+        growthpro_course,
+        ],
+        technologies: ["React", "NestJS", "PostgreSQL", "WebSocket", "Docker", "Zustand"],
+        links: [
+        {
+            type: "Live",
+            url: "https://ilearn.growthproafrica.com/",
+            icon: Globe,
+        },
+        ],
+        featured: true,
+    },
     {
         title: "Sphere",
         description:
