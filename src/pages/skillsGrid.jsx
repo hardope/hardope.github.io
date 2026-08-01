@@ -2,7 +2,7 @@ import { useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import {
   SiPython, SiNodedotjs, SiNestjs, SiReact, SiNextdotjs, SiDocker,
-  SiPostgresql, SiDjango, SiFastapi, SiExpress, SiRabbitmq,
+  SiPostgresql, SiDjango, SiFastapi, SiExpress, SiRabbitmq, SiGo
 } from "react-icons/si";
 import { FaAws, FaDigitalOcean, FaJava, FaNetworkWired } from "react-icons/fa";
 import { FaC } from "react-icons/fa6";
@@ -14,7 +14,7 @@ const skillsData = [
   { name: "DRF", icon: SiDjango, color: "#3776AB" },
   { name: "FastAPI", icon: SiFastapi, color: "#009688" },
   { name: "Node.js", icon: SiNodedotjs, color: "#3C873A" },
-  { name: "NestJs", icon: SiNestjs, color: "#E0234E" },
+  // { name: "NestJs", icon: SiNestjs, color: "#E0234E" },
   { name: "ExpressJs", icon: SiExpress, color: "#888888" },
   { name: "React", icon: SiReact, color: "#61DAFB" },
   { name: "NextJs", icon: SiNextdotjs, color: "#CCCCCC" },
@@ -30,6 +30,7 @@ const skillsData = [
   { name: "Java", icon: FaJava, color: "#007396" },
   { name: "C", icon: FaC, color: "#888888" },
   { name: "MicroServices", icon: FaNetworkWired, color: "#61DAFB" },
+  { name: "Golang", icon: SiGo, color: "#61DAFB"}
 ];
 
 const ICON_SIZE = 72; // px, size of each icon cell

@@ -31,6 +31,7 @@ import {
     SiFastapi,
     SiExpress,
     SiRabbitmq,
+    SiGo,
 } from "react-icons/si"
 import potrait from "../assets/potrait.jpg"
 import sphere_dash from "../assets/sphere-dash.png"
@@ -48,6 +49,9 @@ import sphere_auth from "../assets/sphere-auth.png"
 import sphere_admin_course from "../assets/sphere-admin-course.png"
 import sphere_admin_course_light from "../assets/sphere-admin-course-light.png"
 import sphere_learner from "../assets/sphere-learner.png"
+import vendli_dashboard from "../assets/vendli-dashboard.png"
+import vendli_wallet from "../assets/vendli-wallet.png"
+import server_wiz from "../assets/server-wiz.png"
 import { FaAws, FaDigitalOcean, FaJava, FaNetworkWired } from "react-icons/fa"
 import { FaC } from "react-icons/fa6"
 import { DiGithub, DiGoogleCloudPlatform, DiRedis } from "react-icons/di"
@@ -62,7 +66,7 @@ const skillsData = [
     { name: "NestJs", level: 90, icon: SiNestjs, color: "#E0234E" },
     { name: "ExpressJs", level: 85, icon: SiExpress, color: "#3C873A" },
     { name: "React", level: 85, icon: SiReact, color: "#61DAFB" },
-    { name: "NextJs", level: 80, icon: SiNextdotjs, color: "#FFFFFF" },
+    // { name: "NextJs", level: 80, icon: SiNextdotjs, color: "#FFFFFF" },
     { name: "Docker", level: 80, icon: SiDocker, color: "#0db7ed" },
     { name: "RabbitMQ", level: 80, icon: SiRabbitmq, color: "#FF9900" },
     { name: "Redis", level: 80, icon: DiRedis, color: "#FF9900" },
@@ -75,6 +79,7 @@ const skillsData = [
     { name: "Java", level: 70, icon: FaJava, color: "#007396" },
     { name: "C", level: 65, icon: FaC, color: "#555555" },
     { name: "MicroServices", level: 90, icon: FaNetworkWired, color: "#61DAFB" },
+    { name: "Golang", level: 90, icon: SiGo, color: "#61DAFB"}
 ]
 
 // Example data
@@ -203,6 +208,38 @@ const projectsData = [
             },
         ],
         featured: false,
+    },
+    {
+        title: "Vendli.ng",
+        description:
+            "Multi-Vendor Seller workspace",
+        image: vendli_dashboard,
+        album: [vendli_dashboard, vendli_wallet],
+        technologies: ["Golang", "NextJs", "PostgreSQL"],
+        links: [
+            {
+                type: "Live",
+                url: "https://vendli.ng/",
+                icon: ExternalLink,
+            }
+        ],
+        featured: true,
+    },
+    {
+        title: "Server-Wiz",
+        description:
+            "A set of tools to speedup server provisioning and deployment on linux machines.",
+        image: server_wiz,
+        album: [],
+        technologies: ["Golang"],
+        links: [
+            {
+                type: "Live",
+                url: "https://vendli.ng/",
+                icon: ExternalLink,
+            }
+        ],
+        featured: true,
     },
 ]
 
@@ -462,7 +499,7 @@ export default function ModernPortfolio() {
                                 interest in the development and design of scalable applications.
                             </p>
                             <p className="text-[0.97rem] lg:text-base text-slate-200 leading-relaxed">
-                                Skilled in Python (Django Rest Framework, FastAPI), NodeJS (Express, NestJS), Docker, and cloud
+                                Skilled in Golang, Python (Django Rest Framework, FastAPI), NodeJS (Express, NestJS), Docker, and cloud
                                 services. Expert in designing and optimizing RESTful APIs, microservices architectures, and database
                                 systems.
                             </p>
