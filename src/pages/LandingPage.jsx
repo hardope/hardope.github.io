@@ -51,7 +51,9 @@ import sphere_admin_course_light from "../assets/sphere-admin-course-light.png"
 import sphere_learner from "../assets/sphere-learner.png"
 import vendli_dashboard from "../assets/vendli-dashboard.png"
 import vendli_wallet from "../assets/vendli-wallet.png"
-import server_wiz from "../assets/server-wiz.png"
+import server_wiz from "../assets/server-wiz-og.png"
+import continuity from "../assets/continuity-og.png"
+import watch_tower from "../assets/watch-tower-og.png"
 import { FaAws, FaDigitalOcean, FaJava, FaNetworkWired } from "react-icons/fa"
 import { FaC } from "react-icons/fa6"
 import { DiGithub, DiGoogleCloudPlatform, DiRedis } from "react-icons/di"
@@ -189,6 +191,22 @@ const projectsData = [
         featured: true,
     },
     {
+        title: "Continuity",
+        description:
+            "An open-source, cloud-free continuity suite bringing clipboard, file, and media sync across macOS, Windows, Linux, and Android over the local network, secured with TLS 1.3 and trust-on-first-use pairing.",
+        image: continuity,
+        album: [],
+        technologies: ["Rust", "Kotlin", "Swift", "mDNS", "TLS 1.3"],
+        links: [
+            {
+                type: "GitHub",
+                url: "https://github.com/hardope/continuity",
+                icon: Github,
+            }
+        ],
+        featured: true,
+    },
+    {
         title: "turboXpress",
         description:
             "A powerful Framework & CLI tool designed to help developers quickly create and scaffold Express-based projects with built-in logging, static file serving, and JSON request handling.",
@@ -228,18 +246,34 @@ const projectsData = [
     {
         title: "Server-Wiz",
         description:
-            "A set of tools to speedup server provisioning and deployment on linux machines.",
+            "A CLI toolbox of guided setup wizards for provisioning and deploying Linux servers - nginx + SSL, users, PostgreSQL, and Node.js - with no config file editing required.",
         image: server_wiz,
         album: [],
-        technologies: ["Golang"],
+        technologies: ["Golang", "CLI", "Linux", "PostgreSQL", "nginx"],
         links: [
             {
-                type: "Live",
-                url: "https://vendli.ng/",
-                icon: ExternalLink,
+                type: "GitHub",
+                url: "https://github.com/hardope/server-wiz",
+                icon: Github,
             }
         ],
         featured: true,
+    },
+    {
+        title: "Watch-Tower",
+        description:
+            "A terminal monitoring tool for Linux that auto-detects 25+ running services (PostgreSQL, Redis, Kafka, nginx, and more) and tracks their connections, memory/CPU usage, and trends in real time with no per-service configuration.",
+        image: watch_tower,
+        album: [],
+        technologies: ["Rust", "Linux", "CLI"],
+        links: [
+            {
+                type: "GitHub",
+                url: "https://github.com/hardope/watch-tower",
+                icon: Github,
+            }
+        ],
+        featured: false,
     },
 ]
 
