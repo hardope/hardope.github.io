@@ -13,6 +13,8 @@ import {
     MapPin,
     Calendar,
     ChevronDown,
+    ChevronLeft,
+    ChevronRight,
     Zap,
     Target,
     Star,
@@ -53,6 +55,10 @@ import vendli_dashboard from "../assets/vendli-dashboard.png"
 import vendli_wallet from "../assets/vendli-wallet.png"
 import server_wiz from "../assets/server-wiz-og.png"
 import continuity from "../assets/continuity-og.png"
+import continuity_mac_devices from "../assets/continuity-mac-devices.png"
+import continuity_mac_about from "../assets/continuity-mac-about.png"
+import continuity_android_devices from "../assets/continuity-android-devices.jpg"
+import continuity_android_remote from "../assets/continuity-android-remote.jpg"
 import watch_tower from "../assets/watch-tower-og.png"
 import { FaAws, FaDigitalOcean, FaJava, FaNetworkWired } from "react-icons/fa"
 import { FaC } from "react-icons/fa6"
@@ -194,8 +200,14 @@ const projectsData = [
         title: "Continuity",
         description:
             "An open-source, cloud-free continuity suite bringing clipboard, file, and media sync across macOS, Windows, Linux, and Android over the local network, secured with TLS 1.3 and trust-on-first-use pairing.",
-        image: continuity,
-        album: [],
+        image: continuity_mac_devices,
+        album: [
+            continuity_mac_devices,
+            continuity_mac_about,
+            continuity_android_devices,
+            continuity_android_remote,
+            continuity,
+        ],
         technologies: ["Rust", "Kotlin", "Swift", "mDNS", "TLS 1.3"],
         links: [
             {
@@ -286,6 +298,7 @@ const achievements = [
 
 export default function ModernPortfolio() {
     const [selectedProject, setSelectedProject] = useState(null)
+    const [lightboxIndex, setLightboxIndex] = useState(null)
     const [pointer, setPointer] = useState({ x: 0, y: 0 })
     const [hasPointer, setHasPointer] = useState(false)
     const skillsBoxRef = useRef(null)
@@ -301,6 +314,18 @@ export default function ModernPortfolio() {
             document.body.style.overflow = "auto"
         }
     }, [selectedProject])
+
+    useEffect(() => {
+        if (lightboxIndex === null || !selectedProject) return
+        const count = selectedProject.album.length
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") setLightboxIndex(null)
+            else if (e.key === "ArrowRight") setLightboxIndex((i) => (i + 1) % count)
+            else if (e.key === "ArrowLeft") setLightboxIndex((i) => (i - 1 + count) % count)
+        }
+        window.addEventListener("keydown", handleKeyDown)
+        return () => window.removeEventListener("keydown", handleKeyDown)
+    }, [lightboxIndex, selectedProject])
 
     const handlePointerMove = (e) => {
         if (!skillsBoxRef.current) return
@@ -838,18 +863,77 @@ export default function ModernPortfolio() {
                                         <h4 className="text-sm font-semibold text-slate-100">Gallery</h4>
                                         <div className="grid grid-cols-2 gap-3">
                                             {selectedProject.album.map((img, i) => (
-                                                <img
+                                                <button
                                                     key={i}
-                                                    src={img}
-                                                    alt={`${selectedProject.title} ${i + 1}`}
-                                                    className="w-full h-28 sm:h-32 object-cover rounded-lg border border-slate-800/80"
-                                                />
+                                                    onClick={() => setLightboxIndex(i)}
+                                                    className="aspect-[16/10] rounded-lg border border-slate-800/80 bg-slate-900/70 overflow-hidden hover:border-sky-500/60 transition-colors"
+                                                >
+                                                    <img
+                                                        src={img}
+                                                        alt={`${selectedProject.title} ${i + 1}`}
+                                                        className="w-full h-full object-contain"
+                                                    />
+                                                </button>
                                             ))}
                                         </div>
                                     </div>
                                 )}
                             </div>
                         </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Gallery Lightbox */}
+            <AnimatePresence>
+                {selectedProject && lightboxIndex !== null && (
+                    <motion.div
+                        className="fixed inset-0 z-[110] bg-slate-950/95 backdrop-blur-sm flex items-center justify-center p-4 sm:p-12"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setLightboxIndex(null)}
+                    >
+                        <img
+                            src={selectedProject.album[lightboxIndex]}
+                            alt={`${selectedProject.title} ${lightboxIndex + 1}`}
+                            className="max-w-full max-h-full object-contain rounded-lg"
+                            onClick={(e) => e.stopPropagation()}
+                        />
+                        <button
+                            onClick={() => setLightboxIndex(null)}
+                            className="absolute top-4 right-4 rounded-full bg-slate-950/70 border border-slate-700/80 p-1.5 text-slate-300 hover:text-slate-50 hover:border-slate-500 transition-colors"
+                        >
+                            <X size={18} />
+                        </button>
+                        {selectedProject.album.length > 1 && (
+                            <>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation()
+                                        setLightboxIndex(
+                                            (lightboxIndex - 1 + selectedProject.album.length) %
+                                                selectedProject.album.length,
+                                        )
+                                    }}
+                                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-950/70 border border-slate-700/80 p-2 text-slate-300 hover:text-slate-50 hover:border-slate-500 transition-colors"
+                                >
+                                    <ChevronLeft size={20} />
+                                </button>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation()
+                                        setLightboxIndex((lightboxIndex + 1) % selectedProject.album.length)
+                                    }}
+                                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-950/70 border border-slate-700/80 p-2 text-slate-300 hover:text-slate-50 hover:border-slate-500 transition-colors"
+                                >
+                                    <ChevronRight size={20} />
+                                </button>
+                                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-slate-400">
+                                    {lightboxIndex + 1} / {selectedProject.album.length}
+                                </span>
+                            </>
+                        )}
                     </motion.div>
                 )}
             </AnimatePresence>
