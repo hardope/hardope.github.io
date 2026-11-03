@@ -60,6 +60,9 @@ import continuity_mac_about from "../assets/continuity-mac-about.png"
 import continuity_android_devices from "../assets/continuity-android-devices.jpg"
 import continuity_android_remote from "../assets/continuity-android-remote.jpg"
 import watch_tower from "../assets/watch-tower-og.png"
+import itan_home from "../assets/itan-home.png"
+import itan_player from "../assets/itan-player.png"
+import itan_settings from "../assets/itan-settings.png"
 import { FaAws, FaDigitalOcean, FaJava, FaNetworkWired } from "react-icons/fa"
 import { FaC } from "react-icons/fa6"
 import { DiGithub, DiGoogleCloudPlatform, DiRedis } from "react-icons/di"
@@ -140,7 +143,7 @@ const experiencesData = [
     {
         role: "Software Engineer",
         company: "MyTech Enterprise Services",
-        duration: "Nov 2023 - Aug 2024",
+        duration: "Nov 2022 - Aug 2024",
         location: "Nigeria",
         details:
             "Developed a web application to streamline digital requests for automobile repairs and maintenance, enhancing user experience and reducing processing time by 30%. Collaborated with cross-functional teams to gather requirements and deliver high-quality software solutions.",
@@ -149,6 +152,54 @@ const experiencesData = [
 ]
 
 const projectsData = [
+    {
+        title: "Continuity",
+        description:
+            "An open-source, cloud-free continuity suite bringing clipboard, file, and media sync across macOS, Windows, Linux, and Android over the local network, secured with TLS 1.3 and trust-on-first-use pairing.",
+        image: continuity_mac_devices,
+        album: [
+            continuity_mac_devices,
+            continuity_mac_about,
+            continuity_android_devices,
+            continuity_android_remote,
+            continuity,
+        ],
+        technologies: ["Rust", "Kotlin", "Swift", "mDNS", "TLS 1.3"],
+        links: [
+            {
+                type: "GitHub",
+                url: "https://github.com/hardope/continuity",
+                icon: Github,
+            },
+            {
+                type: "Download",
+                url: "https://github.com/hardope/continuity/releases/latest",
+                icon: ExternalLink,
+            },
+        ],
+        featured: true,
+    },
+    {
+        title: "Itan",
+        description:
+            "A lightweight, self-hosted home streaming service for the video files you already have. Point it at your folders and watch on any device on your Wi-Fi, with tag-first browsing, explainable recommendations, and on-the-fly hardware-accelerated transcoding.",
+        image: itan_home,
+        album: [itan_home, itan_player, itan_settings],
+        technologies: ["Golang", "SQLite", "FFmpeg", "JavaScript", "Docker"],
+        links: [
+            {
+                type: "GitHub",
+                url: "https://github.com/hardope/itan",
+                icon: Github,
+            },
+            {
+                type: "Download",
+                url: "https://github.com/hardope/itan/releases/latest",
+                icon: ExternalLink,
+            },
+        ],
+        featured: true,
+    },
     {
         title: "Growthpro Africa (powered by Sphere)",
         description:
@@ -193,28 +244,6 @@ const projectsData = [
                 url: "https://sphere.growthproafrica.com/",
                 icon: ExternalLink,
             },
-        ],
-        featured: true,
-    },
-    {
-        title: "Continuity",
-        description:
-            "An open-source, cloud-free continuity suite bringing clipboard, file, and media sync across macOS, Windows, Linux, and Android over the local network, secured with TLS 1.3 and trust-on-first-use pairing.",
-        image: continuity_mac_devices,
-        album: [
-            continuity_mac_devices,
-            continuity_mac_about,
-            continuity_android_devices,
-            continuity_android_remote,
-            continuity,
-        ],
-        technologies: ["Rust", "Kotlin", "Swift", "mDNS", "TLS 1.3"],
-        links: [
-            {
-                type: "GitHub",
-                url: "https://github.com/hardope/continuity",
-                icon: Github,
-            }
         ],
         featured: true,
     },
